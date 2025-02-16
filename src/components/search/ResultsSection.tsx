@@ -2,13 +2,10 @@ import React from "react";
 import { Pagination } from "../ui/pagination";
 import SortControls from "./SortControls";
 import SlokaCard from "./SlokaCard";
-
 import { Sloka } from "@/data/sampleSlokas";
 
-type Result = Sloka;
-
 interface ResultsSectionProps {
-  results?: Result[];
+  results?: Sloka[];
   currentPage?: number;
   totalPages?: number;
   onPageChange?: (page: number) => void;
@@ -16,24 +13,12 @@ interface ResultsSectionProps {
   sortField?: string;
   sortDirection?: "asc" | "desc";
   isLoading?: boolean;
+  expandedSlokas?: string[];
+  onToggleExpand?: (slokaId: string) => void;
 }
 
 const ResultsSection = ({
-  results = [
-    {
-      id: "1",
-      slokaText: "॥ श्रीः ॥ श्रीमते रामानुजाय नमः ॥",
-      padaCheda: "श्रीः । श्रीमते । रामानुजाय । नमः ।",
-      bhashyam:
-        "This is a sample bhashyam text explaining the meaning and significance of the sloka.",
-    },
-    {
-      id: "2",
-      slokaText: "धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः ।",
-      padaCheda: "धर्मक्षेत्रे । कुरुक्षेत्रे । समवेताः । युयुत्सवः ।",
-      bhashyam: "Another sample bhashyam explaining the meaning of this verse.",
-    },
-  ],
+  results = [],
   currentPage = 1,
   totalPages = 10,
   onPageChange = () => {},
@@ -41,9 +26,11 @@ const ResultsSection = ({
   sortField = "granthah",
   sortDirection = "asc",
   isLoading = false,
+  expandedSlokas = [],
+  onToggleExpand = () => {},
 }: ResultsSectionProps) => {
   return (
-    <div className="w-full bg-amber-50 rounded-lg p-4 space-y-4">
+    <div className="w-full bg-slate-50 rounded-lg p-4 space-y-4">
       <SortControls
         onSortChange={onSortChange}
         sortField={sortField}
@@ -52,7 +39,7 @@ const ResultsSection = ({
 
       {isLoading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-700" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600" />
         </div>
       ) : results.length === 0 ? (
         <div className="text-center py-8 text-gray-500">No results found</div>
@@ -67,6 +54,8 @@ const ResultsSection = ({
               anvaya={result.anvaya}
               granthah={result.granthah}
               granthasya_khandah={result.granthasya_khandah}
+              expanded={expandedSlokas.includes(result.id)}
+              onToggleExpand={() => onToggleExpand(result.id)}
             />
           ))}
         </div>

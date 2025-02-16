@@ -21,7 +21,7 @@ const SortControls = ({
   sortDirection = "asc",
 }: SortControlsProps) => {
   return (
-    <div className="flex items-center justify-between p-4 bg-white border-b">
+    <div className="flex items-center justify-between p-4 bg-white border-b border-slate-200">
       <div className="flex items-center gap-2">
         <span className="text-sm font-medium text-gray-700">Sort by:</span>
         <Select

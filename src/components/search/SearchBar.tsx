@@ -41,7 +41,7 @@ const SearchBar = ({
           <Input
             type="text"
             placeholder="Search Sanskrit slokas..."
-            className="w-full pl-4 pr-10 py-2 text-lg border-2 border-amber-200 rounded-lg focus:border-amber-400 focus:ring-amber-400 font-sanskrit"
+            className="w-full pl-4 pr-10 py-2 text-lg border-2 border-slate-200 rounded-lg focus:border-indigo-400 focus:ring-indigo-400 font-sanskrit"
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -51,11 +51,11 @@ const SearchBar = ({
           <Button
             type="submit"
             size="icon"
-            className="absolute right-2 hover:bg-amber-100"
+            className="absolute right-2 hover:bg-slate-100"
             variant="ghost"
             disabled={loading}
           >
-            <Search className="h-5 w-5 text-amber-600" />
+            <Search className="h-5 w-5 text-indigo-600" />
           </Button>
         </div>
 

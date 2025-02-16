@@ -25,16 +25,16 @@ const SlokaCard = ({
 }: SlokaCardProps) => {
   return (
     <Card
-      className="w-full bg-white border border-amber-100 hover:border-amber-200 transition-colors cursor-pointer"
+      className="w-full bg-white border border-slate-200 hover:border-indigo-200 hover:shadow-md transition-all cursor-pointer"
       onClick={onToggleExpand}
     >
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <div>
-            <div className="text-sm text-amber-700 mb-1">
+            <div className="text-sm text-indigo-600 mb-1">
               {granthah} - {granthasya_khandah}
             </div>
-            <div className="font-sanskrit text-xl text-amber-900">{slokah}</div>
+            <div className="font-sanskrit text-xl text-slate-900">{slokah}</div>
           </div>
         </div>
       </CardHeader>
@@ -42,24 +42,24 @@ const SlokaCard = ({
         {expanded ? (
           <div className="space-y-4">
             <div>
-              <h4 className="text-sm font-medium text-amber-800 mb-1">
+              <h4 className="text-sm font-medium text-slate-700 mb-1">
                 पदच्छेद (Pada Cheda):
               </h4>
-              <div className="text-sm text-amber-800 font-sanskrit">
+              <div className="text-sm text-slate-800 font-sanskrit">
                 {padaCheda}
               </div>
             </div>
             <div>
-              <h4 className="text-sm font-medium text-amber-800 mb-1">
+              <h4 className="text-sm font-medium text-slate-700 mb-1">
                 अन्वय (Anvaya):
               </h4>
-              <div className="text-sm text-amber-800 font-sanskrit">
+              <div className="text-sm text-slate-800 font-sanskrit">
                 {anvaya}
               </div>
             </div>
-            <Separator className="my-3 bg-amber-100" />
+            <Separator className="my-3 bg-slate-200" />
             <div>
-              <h4 className="text-sm font-medium text-amber-800 mb-1">
+              <h4 className="text-sm font-medium text-slate-700 mb-1">
                 भाष्यम् (Bhashyam):
               </h4>
               <div className="text-sm text-gray-600">{bhashyam}</div>
